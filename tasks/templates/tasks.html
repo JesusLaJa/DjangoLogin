@@ -8,7 +8,7 @@
 
             <ul class="list-group">
                 {% for task in tasks %}
-                <h1 class="text-center">Tareas Pendientes</h1>
+                <h1 class="text-center">Tareas Completadas</h1>
                 <a class="list-group-item" href="{% url 'task_detail' task.id %}">
                         {% if task.important %}
                         <h1 class="fw-bold text-success">{{task.title}}</h1>
@@ -22,6 +22,7 @@
                         <p>{{task.datecompleted|date:'M j Y:i'}}</p>
                 </a>
                 {% endfor %}
+                <h1 class="text-center">Tareas Pendientes</h1>
             </ul>
         </div>
     </div>
