@@ -5,8 +5,9 @@
 <main class="container">
     <div class="row">
         <div class="col-md-6 offset-md-3">
-            
+
             <ul class="list-group">
+                <h1 class="text-center">Tareas Pendientes</h1>
                 {% for task in tasks %}
                 <a class="list-group-item" href="{% url 'task_detail' task.id %}">
                         {% if task.important %}

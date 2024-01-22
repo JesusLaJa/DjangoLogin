@@ -4,8 +4,8 @@
 
 <main class="container">
     <div class="row">
+        <h1>Tareas Completadas</h1>
         <div class="col-md-4 offset-md-4">
-            <h1>Tareas Completadas</h1>
             <h1 class="text-secondary">{{task.title}}</h1>
 
             {{error}}
@@ -18,7 +18,8 @@
                 </button>
             </form>
 
-            <div class="d-flex">            
+            <div class="d-flex">
+                <h1>Tareas Completadas</h1>
                 <form action="{% url 'task_complete' task.id %}" method="POST">
                     {% csrf_token %}
             
