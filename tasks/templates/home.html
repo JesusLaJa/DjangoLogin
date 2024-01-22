@@ -5,19 +5,19 @@
 <mai class="container py-5">
     <section class="card card-body">
         <h1 class="display-1 text-center">Principal</h1>
-        <p>Hola!!! Esta es una página de prueba en la cual es un pequeño Login, espero que le guste mi primer página web.</p>
+        <p>Hola!!! Esta es una página de prueba en la cual es un pequeño Login, espero que le guste mi primer página web</p>
 
         {% if user.is_authenticated %}
-        {% endif %}        
-        {% else %}
-        <div class="text-center">
-            <a class="btn btn-secondary" href="/signin">
-                Iniciar Sesión
-            </a>
-            <a class="btn btn-secondary" href="/signup">
-                Registrarse
-            </a>
-        </div>
+            {% else %}
+            <div class="text-center">
+                <a class="btn btn-secondary" href="/signin">
+                    Iniciar Sesión
+                </a>
+                <a class="btn btn-secondary" href="/signup">
+                    Registrarse
+                </a>
+            </div>
+        {% endif %}
     </section>
 </main>
 
