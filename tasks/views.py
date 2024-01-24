@@ -46,7 +46,7 @@ def signup(request):
                 "error": "Las contraseñas no coinciden",
             },
         )
-
+#comentario
 @login_required
 def tasks(request):
     #con esta linea se filtran las tareas para que solo sean mostradas aquellas que son del usuario que inicio sesion
