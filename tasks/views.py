@@ -12,7 +12,6 @@ from django.contrib.auth.decorators import login_required
 def home(request):
     return render(request, "home.html")
 
-
 def signup(request):
     if request.method == "GET":
         print("Enviando formulario")
@@ -61,7 +60,7 @@ def tasksCompleted(request):
 
 @login_required
 def createTask(request):
-    #En caso de que se quiera crear una tarea este metodo me mostrara el formulario para crear una nueva tarea 
+    #En caso de que se quiera crear una tarea este metodo me mostrara el formulario para crear una nueva tare 
     if request.method == "GET":
         return render(request, "create_task.html", {
         'form': TaskForm
