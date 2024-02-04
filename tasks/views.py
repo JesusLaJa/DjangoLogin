@@ -15,8 +15,7 @@ def home(request):
 def signup(request):
     if request.method == "GET":
         print("Enviando formulario")
-        return render(
-            request, "signup.html", {"form": UserCreationForm}  # Diccionario de datos
+        return render(request, "signup.html", {"form": UserCreationForm}  # Diccionario de datos
         )
     else:
         if request.POST["password1"] == request.POST["password2"]:
