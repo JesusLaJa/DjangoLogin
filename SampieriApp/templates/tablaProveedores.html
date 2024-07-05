@@ -1,0 +1,31 @@
+{% load static %}
+
+<div class="table-responsive">
+    <h4>Proveedores</h4>
+    <table class="table zero-configuration" id="proveedoresTable">
+        <thead class="thead-dark">
+            <tr>
+                <th>Nombre</th>
+                <th>Teléfono</th>
+                <th>Email</th>
+                <th>Dirección</th>
+                <th>Código Postal</th>
+                <th>Editar proveedor</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for proveedor in proveedores %}
+            <tr>
+                <td class="text-bold-500 ">{{ proveedor.nombre }}</td>
+                <td >{{ proveedor.telefono }}</td>
+                <td >{{ proveedor.email }}</td>
+                <td >{{ proveedor.direccion }}</td>
+                <td >{{ proveedor.codigoPostal }}</td>
+                <td class="text-center">
+                    <i id="btnUpdateProveedores" type="button" data-id="{{ proveedor.id }}" class="badge-circle badge-circle-light-secondary bx bx-edit-alt font-medium-1 btnUpdateProveedores"></i>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</div>
