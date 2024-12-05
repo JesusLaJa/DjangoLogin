@@ -1,0 +1,87 @@
+{% load static %}
+
+</head>
+
+<body>
+    <div class="container">
+        <h1>Prueba</h1>
+        <table class="table" id="dataTable">
+            <thead>
+                <tr>
+                    <th>Prueba 1</th>
+                    <th>Prueba 2</th>
+                    <th>Prueba 3</th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr>
+                    <td>Fila 1 Columna 1</td>
+                    <td>Fila 1 Columna 2</td>
+                    <td>Fila 1 Columna 3</td>
+                </tr>
+                <tr>
+                    <td>Fila 2 Columna 1</td>
+                    <td>Fila 2 Columna 2</td>
+                    <td>Fila 2 Columna 3</td>
+                </tr>
+                <tr>
+                    <td>Fila 3 Columna 1</td>
+                    <td>Fila 3 Columna 2</td>
+                    <td>Fila 3 Columna 3</td>
+                </tr>
+            </tbody>
+        </table>
+        <button id="exportButton" class="btn btn-primary">Exportar a Excel</button>
+    </div>
+    
+    <script>
+        document.getElementById('exportButton').addEventListener('click', function () {
+            var table = document.getElementById('dataTable');
+            var headers = [];
+            var rows = [];
+
+            // Obtener encabezados de la tabla
+            var ths = table.querySelectorAll('thead th');
+            for (var i = 0; i < ths.length; i++) {
+                headers.push(ths[i].innerText);
+            }
+
+            // Obtener filas de la tabla
+            var trs = table.querySelectorAll('tbody tr');
+            for (var i = 0; i < trs.length; i++) {
+                var cells = trs[i].querySelectorAll('td');
+                var row = [];
+                for (var j = 0; j < cells.length; j++) {
+                    row.push(cells[j].innerText);
+                }
+                rows.push(row);
+            }
+
+            // Enviar datos al servidor
+            fetch('{% url "exportExcel" %}', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'X-CSRFToken': '{{ csrf_token }}'
+                },
+                body: JSON.stringify({
+                    headers: headers,
+                    rows: rows
+                })
+            })
+                .then(response => response.blob())
+                .then(blob => {
+                    var link = document.createElement('a');
+                    link.href = window.URL.createObjectURL(blob);
+                    link.download = 'tabla.xlsx';
+                    link.click();
+                })
+                .catch(error => console.error('Error:', error));
+        });
+    </script>
+</body>
+<script>
+    $(document).ready(function () {
+        Menu.initMenu();
+    });
+</script>

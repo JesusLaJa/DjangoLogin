@@ -1,0 +1,56 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+
+<section id="tooltip-validation">
+    <div class="row">
+        <div class="col-6">
+            <div class="card">
+                <div class="card-header">
+                </div>
+                <div class="card-content">
+                    <div class="card-body">
+                        <h1>Perfil de usuario</h1>
+                        <h4>Usuario: {{userLog.username}}</h4>
+                        <p></p>
+                        <div class="row">
+                            <div class="col-md-12">
+                                <fieldset class="form-group">
+                                    <div>
+                                        <label for="validationTooltip01">{{formUser.first_name.label}}</label>
+                                        {{formUser.first_name}}
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <div>
+                                        <label for="validationTooltip01">{{formUser.last_name.label}}</label>
+                                        {{formUser.last_name}}
+                                    </div>
+                                </fieldset>
+                                <fieldset class="form-group">
+                                    <div>
+                                        <label for="validationTooltip01">{{formUser.email.label}}</label>
+                                        {{formUser.email}}
+                                    </div>
+                                </fieldset>
+                            </div>
+                        </div>
+                        <p></p>
+                        <button id="saveUser" class="btn btn-primary" type="button">Guardar</button>
+                        <button id="btnCambiarContrasenia" class="btn btn-primary position-right" type="button">Cambiar
+                            contraseña</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        User.init();
+    });
+</script>
+
+{% endblock %}

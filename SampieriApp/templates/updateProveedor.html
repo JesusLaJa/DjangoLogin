@@ -1,0 +1,57 @@
+{% extends 'base.html' %}
+
+{% load static %}
+
+{% block content %}
+<section id="floating-label-layouts">
+    <div class="row">
+        <div class="col-12">
+            <div class="card-body">
+                <div class="form-row">
+                    <div>
+                        <h5>Proveedor</h5>
+                        <BR></BR>
+                    </div>                    
+                    <div class="col-md-12">    
+                        <div class="col-12">
+                            <fieldset class="form-label-group">
+                                {{formProveedor.nombre}}
+                                <label for="first-name-floating">{{formProveedor.nombre.label}}</label>
+                            </fieldset>
+                        </div>
+                        <div class="col-12">
+                            <fieldset class="form-label-group">
+                                {{formProveedor.telefono}}
+                                <label for="email-id-floating">{{formProveedor.telefono.label}}</label>
+                            </fieldset>
+                        </div>
+                        <div class="col-12">
+                            <fieldset class="form-label-group">
+                                {{formProveedor.email}}
+                                <label for="contact-info-floating">{{formProveedor.email.label}}</label>
+                            </fieldset>
+                        </div>
+                        <div class="col-12">
+                            <fieldset class="form-label-group">
+                                {{formProveedor.direccion}}
+                                <label for="password-floating">{{formProveedor.direccion.label}}</label>
+                            </fieldset>
+                        </div>
+                        <div class="col-12">
+                            <fieldset class="form-label-group">
+                                {{formProveedor.codigoPostal}}
+                                <label for="password-floating">{{formProveedor.codigoPostal.label}}</label>
+                            </fieldset>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+<script>
+    $(document).ready(function () {
+        Proveedor.init();
+    });
+</script>
+{% endblock %}
